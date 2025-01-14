@@ -1,87 +1,42 @@
 <html>
   <head> </head>
-  <style>
-    * {
-      font-family: Arial, sans-serif;
-    }
-    form {
-      margin: 15px 5px;
-      width: 500px;
-      font-size: 16px;
-    }
-    form h1 {
-      text-align: center;
-    }
-    form label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 5px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-      resize: vertical;
-    }
-    form button {
-      background: #4caf50;
-      color: white;
-      padding: 10px 15px;
-      margin-top: 5px;
-      border: none;
-      cursor: pointer;
-    }
-    form button:hover {
-      background: green;
-    }
-  </style>
+
   <body>
-    <form>
-      <h1>Send Data To WhatsApp</h1>
-      <label for="">Name</label>
-      <input type="text" class="name" />
-
-      <label for="">Email</label>
-      <input type="text" class="email" />
-
-      <label for="">Country</label>
-      <input type="text" class="country" />
-
-      <label for="">Message</label>
-      <textarea class="message"></textarea>
+    <form action="">
       <button type="button" onclick="sendwhatsapp();">Send Via WhatsApp</button>
     </form>
-
     <script>
+      let data = [
+        {
+          id: 0,
+          title: "DQ HAIR+",
+          dec: ". تعزيز نمو الشعر وكثافته فعال للصلع الوراثي منع تساقط الشعر",
+          price: 20,
+          catg: "DERMAQUAL",
+          img: "https://dermaqual.com/wp-content/uploads/2022/12/DQ-HAIR_Box_Vial.jpg",
+        },
+        {
+          id: 1,
+          title: "DQ HAIR+111",
+          dec: ". تعزيز نمو الشعر وكثافته فعال للصلع الوراثي منع تساقط الشعر",
+          price: 20,
+          catg: "DERMAQUAL",
+          img: "https://dermaqual.com/wp-content/uploads/2022/12/DQ-HAIR_Box_Vial.jpg",
+        },
+      ];
       function sendwhatsapp() {
-        var phonenumber = "+963957824413";
-
-        var name = document.querySelector(".name").value;
-        var email = document.querySelector(".email").value;
-        var country = document.querySelector(".country").value;
-        var message = document.querySelector(".message").value;
-
-        var url =
-          "https://wa.me/" +
-          phonenumber +
-          "?text=" +
-          "*Name :* " +
-          name +
-          "%0a" +
-          "*Email :* " +
-          email +
-          "%0a" +
-          "*Country:* " +
-          country +
-          "%0a" +
-          "*Message :* " +
-          message +
-          "%0a%0a" +
-          "This is an example of send HTML form data to WhatsApp";
+        let text = "";
+        data.forEach((element) => {
+          text += "*product :* " + element.title + element.price;
+          ("%0a");
+        });
+        const phonenumber = "+963967620956";
+        let url = "https://wa.me/" + phonenumber + "?text=" + text;
 
         window.open(url, "_blank").focus();
       }
+
+      console.log(text);
     </script>
   </body>
 </html>
