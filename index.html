@@ -25,11 +25,11 @@
         },
       ];
       function sendwhatsapp() {
-        let text = "";
+        let text = "product";
         data.forEach((element) => {
-          text += "*product :* " + element.title + element.price;
-          ("%0a");
+          text += `\n + ${element.title} + ${element.price} \n`;
         });
+        text += "2500$"
         const phonenumber = "+963957824413";
         let url = "https://wa.me/" + phonenumber + "?text=" + text;
 
