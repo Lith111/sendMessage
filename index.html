@@ -27,7 +27,10 @@
       function sendwhatsapp() {
         let text = "product";
         data.forEach((element) => {
-          text += `\n + ${element.title} + ${element.price} \n`;
+          text += `
+          ######################################
+          + ${element.title} + ${element.price} 
+          ######################################`;
         });
         text += "2500$"
         const phonenumber = "+963957824413";
